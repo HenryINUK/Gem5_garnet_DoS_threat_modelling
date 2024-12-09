@@ -187,12 +187,13 @@ GarnetSyntheticTraffic::tick()
 
 int cnts = 0;
 
+//Flooding attack tick function
 void
 GarnetSyntheticTraffic::tick_attack()
 {
 
 if(cnts<=1000){
-    if(cnts<=1000*flooding_rate)
+    if(cnts<=1000*flooding_rate) //Flooding injection rate provided from command line
     flooding_pkt_gen();
     cnts+=1;
 }else{cnts=0;}
@@ -350,6 +351,8 @@ GarnetSyntheticTraffic::generatePkt()
     sendPkt(pkt);
 }
 
+
+//Flooding packet generation function
 bool
 GarnetSyntheticTraffic::flooding_pkt_gen()
 {
